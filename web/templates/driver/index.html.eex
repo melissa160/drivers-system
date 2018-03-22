@@ -1,0 +1,28 @@
+<h2>Listing drivers</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Identification</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for driver <- @drivers do %>
+    <tr>
+      <td><%= driver.name %></td>
+      <td><%= driver.identification %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: driver_path(@conn, :show, driver), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: driver_path(@conn, :edit, driver), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: driver_path(@conn, :delete, driver), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New driver", to: driver_path(@conn, :new) %></span>

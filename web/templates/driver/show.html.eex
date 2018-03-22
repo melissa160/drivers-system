@@ -1,0 +1,18 @@
+<h2>Show driver</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @driver.name %>
+  </li>
+
+  <li>
+    <strong>Identification:</strong>
+    <%= @driver.identification %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: driver_path(@conn, :edit, @driver) %></span>
+<span><%= link "Back", to: driver_path(@conn, :index) %></span>

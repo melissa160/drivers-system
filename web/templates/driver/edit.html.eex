@@ -1,0 +1,6 @@
+<h2>Edit driver</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: driver_path(@conn, :update, @driver) %>
+
+<span><%= link "Back", to: driver_path(@conn, :index) %></span>
