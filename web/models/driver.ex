@@ -2,6 +2,7 @@ defmodule Registering.Driver do
   use Registering.Web, :model
 
   schema "drivers" do
+    has_many :vehicles, Registering.Vehicle
     field :name, :string
     field :identification, :string
 
