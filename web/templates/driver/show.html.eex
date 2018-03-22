@@ -16,3 +16,4 @@
 
 <span><%= link "Edit", to: driver_path(@conn, :edit, @driver) %></span>
 <span><%= link "Back", to: driver_path(@conn, :index) %></span>
+<strong><%= link "Vehicles", to: driver_vehicle_path(@conn, :index, @driver) %></strong>
