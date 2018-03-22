@@ -1,0 +1,6 @@
+<h2>New vehicle for <%= @driver.name %></h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: driver_vehicle_path(@conn, :create, @driver) %>
+
+<%= link "Back to vehicles", to: driver_vehicle_path(@conn, :index, @driver) %>

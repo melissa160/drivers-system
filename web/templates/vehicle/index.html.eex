@@ -1,0 +1,21 @@
+<h2>Listing vehicles for <%= @driver.name %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Id</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for vehicle <- @vehicles do %>
+    <tr>
+      <td><%= vehicle.license_plate %></td>
+      <td><%= vehicle.kind %></td>
+      <td><%= vehicle.brand %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New vehicle", to: driver_vehicle_path(@conn, :new, @driver) %>
