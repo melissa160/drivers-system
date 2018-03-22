@@ -17,7 +17,9 @@ defmodule Registering.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/drivers", DriverController
+    resources "/drivers", DriverController do
+      resources "/vehicles", VehicleController
+    end
   end
 
   # Other scopes may use custom stacks.
