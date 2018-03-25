@@ -19,13 +19,18 @@ defmodule Registering.VehicleController do
   end
 
   def new(conn, _params) do
-    changeset = Vehicle.changeset(%Vehicle{})
+    changeset =
+      conn.assigns.driver
+      |> build_assoc(:vehicles)
+      |> Vehicle.changeset()
+
     render conn, "new.html", changeset: changeset
   end
 
   def create(conn, %{"vehicle" => vehicle_params}) do
     changeset =
-      build_assoc(conn.assigns.driver, :vehicles)
+      conn.assigns.driver
+      |> build_assoc(:vehicles)
       |> Vehicle.changeset(vehicle_params)
 
     case Repo.insert(changeset) do
