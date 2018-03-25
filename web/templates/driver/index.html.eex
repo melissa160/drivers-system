@@ -1,3 +1,8 @@
+<div class="search">
+  <%= text_input :search, :query, placeholder: "Type search query here.." %>
+  <%= button "Search", to: "/search/^search_query", method: "get", class: "btn btn-default btn-md" %>
+</div>
+
 <h2>Listing drivers</h2>
 
 <table class="table">
