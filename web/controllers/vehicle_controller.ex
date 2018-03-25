@@ -38,7 +38,7 @@ defmodule Registering.VehicleController do
         conn
         |> put_flash(:info, "Vehicle created successfully.")
         |> redirect(to: driver_vehicle_path(conn, :index, conn.assigns.driver))
-      {:error, changeset} ->
+      {:error, _vehicle} ->
         render(conn, "new.html", changeset: changeset)
     end
   end
