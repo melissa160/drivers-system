@@ -1,10 +1,15 @@
 defmodule Registering.DriverController do
+  require IEx
   use Registering.Web, :controller
 
   alias Registering.Driver
 
   def index(conn, _params) do
+    if Dict.has_key?(_params, "search") do
+      IO.puts("holaa")
+    end
     drivers = Repo.all(Driver)
+    IEx.pry
     render(conn, "index.html", drivers: drivers)
   end
 

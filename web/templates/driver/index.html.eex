@@ -1,7 +1,6 @@
-<div class="search">
-  <%= text_input :search, :query, placeholder: "Type search query here.." %>
-  <%= button "Search", to: "/search/^search_query", method: "get", class: "btn btn-default btn-md" %>
-</div>
+<%= form_for @conn, driver_path(@conn, :index), [method: :get], fn f -> %>
+  <%= text_input f, :search, placeholder: "Search by title, content, etc." %>
+<% end %>
 
 <h2>Listing drivers</h2>
 
