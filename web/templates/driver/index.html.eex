@@ -1,8 +1,10 @@
-<%= form_for @conn, driver_path(@conn, :index), [method: :get], fn f -> %>
-  <%= text_input f, :search, placeholder: "Search by title, content, etc." %>
-<% end %>
-
 <h2>Listing drivers</h2>
+<%= form_for @conn, driver_path(@conn, :index), [method: :get], fn f -> %>
+  <%= text_input f, :name, placeholder: "Search by Name" %>
+<% end %>
+<%= form_for @conn, driver_path(@conn, :index), [method: :get], fn f -> %>
+  <%= text_input f, :identification, placeholder: "Search by ID" %>
+<% end %>
 
 <table class="table">
   <thead>
