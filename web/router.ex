@@ -20,6 +20,7 @@ defmodule Registering.Router do
     resources "/drivers", DriverController do
       resources "/vehicles", VehicleController
     end
+    get "/vehicles", VehicleController, :list
   end
 
   # Other scopes may use custom stacks.

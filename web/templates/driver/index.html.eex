@@ -32,3 +32,4 @@
 </table>
 
 <span><%= link "New driver", to: driver_path(@conn, :new) %></span>
+<h3><%= link "Go to vehicles list", to: vehicle_path(@conn, :list) %></h3>

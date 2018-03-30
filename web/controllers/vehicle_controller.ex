@@ -1,13 +1,20 @@
 defmodule Registering.VehicleController do
   use Registering.Web, :controller
 
+  alias Registering.Helpers
+
   alias Registering.Vehicle
 
-  plug :find_user
+  plug :find_user, "before all but list" when not action in [:list]
 
   defp find_user(conn, _) do
     driver = Repo.get(Registering.Driver, conn.params["driver_id"])
     assign(conn, :driver, driver)
+  end
+
+  def list(conn, params) do
+    vehicles = Helpers.search(params, Vehicle)
+    render(conn, "list.html", vehicles: vehicles)
   end
 
   def index(conn, _params) do

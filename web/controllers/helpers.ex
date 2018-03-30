@@ -12,6 +12,10 @@ defmodule Registering.Helpers do
     Repo.all from d in model, where: ilike(d.identification, ^"%#{params["identification"]}%")
   end
 
+  def search(%{"license_plate" => _} = params, model) do
+    Repo.all from d in model, where: ilike(d.license_plate, ^"%#{params["license_plate"]}%")
+  end
+
   def search(params, model) do
     Repo.all(model)
   end
