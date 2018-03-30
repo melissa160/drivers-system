@@ -1,23 +1,14 @@
 defmodule Registering.DriverController do
-  require IEx
+
   use Registering.Web, :controller
+
+  alias Registering.Helpers
 
   alias Registering.Driver
 
   def index(conn, params) do
-    render(conn, "index.html", drivers: search(params, Driver))
-  end
-
-  def search(%{"name" => _} = params, model) do
-    Repo.all from d in model, where: ilike(d.name, ^"%#{params["name"]}%")
-  end
-
-  def search(%{"identification" => _} = params, model) do
-    Repo.all from d in model, where: ilike(d.identification, ^"%#{params["identification"]}%")
-  end
-
-  def search(params, model) do
-    Repo.all(model)
+    drivers = Helpers.search(params, Driver)
+    render(conn, "index.html", drivers: drivers)
   end
 
   def new(conn, _params) do
