@@ -1,0 +1,29 @@
+<h2>Listing vehicles</h2>
+<%= form_for @conn, vehicle_path(@conn, :list), [method: :get], fn f -> %>
+  <%= text_input f, :license_plate, placeholder: "Search by license plate" %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>License Plate</th>
+      <th>Brand</th>
+      <th>Kind</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for vehicle <- @vehicles do %>
+    <tr>
+      <td><%= vehicle.license_plate %></td>
+      <td><%= vehicle.brand %></td>
+      <td><%= vehicle.kind %></td>
+
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New driver", to: driver_path(@conn, :new) %></span>
+<h3><%= link "Go to drivers list", to: driver_path(@conn, :index) %></h3>
