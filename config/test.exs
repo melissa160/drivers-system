@@ -12,7 +12,7 @@ config :logger, level: :warn
 # Configure your database
 config :registering, Registering.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
+  username: "melissa",
   password: "postgres",
   database: "registering_test",
   hostname: "localhost",
