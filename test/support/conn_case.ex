@@ -26,6 +26,7 @@ defmodule Registering.ConnCase do
       import Ecto.Query
 
       import Registering.Router.Helpers
+      import Registering.TestHelpers
 
       # The default endpoint for testing
       @endpoint Registering.Endpoint
