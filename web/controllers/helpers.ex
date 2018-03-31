@@ -1,6 +1,5 @@
 defmodule Registering.Helpers do
 
-  alias Plug.Conn
   alias Registering.Repo
   import Ecto.Query
 
